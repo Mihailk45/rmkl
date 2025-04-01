@@ -209,7 +209,7 @@ int ra = 0;
 ra += 1;
 if (ra >= 100){ra = 0;};
 int r = 0;
-r = abs(ra/10-1);
+r = abs(r/10-1);
 //konec_random
     //karta_i_otrisovka_start
 int karta [35];
@@ -288,7 +288,7 @@ karta[34] = 20;
         txSelectFont ("Times", 20);
         txSetColor (RGB(255,255,255), 3);
         txSetFillColor (RGB(255,255,255));
-        txTextOut (50, 60+r, "вы слепы , но чувствуете магию;ваша задача победить боссов;");
+        txTextOut (50, 60, "вы слепы , но чувствуете магию;ваша задача победить боссов;");
         txTextOut (50, 90, "8num - повернуться вперед;2num - повернуться назад;");
         txTextOut (50, 120, "6num - повернуться вправо;4num - повернуться влево;");
         txTextOut (50, 150, "противоположная кнопка взаимодействия - ходьба;");
@@ -376,7 +376,7 @@ karta[34] = 20;
         }
         }
         if(lampl & lampd & lampr)
-        {r = 0;
+        {
         if(GetAsyncKeyState(VK_NUMPAD8))
         {
             if (!lampu)
