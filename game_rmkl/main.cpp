@@ -142,10 +142,10 @@ Vizual vizual = {0 , txLoadImage("pixelarts/New Piskel (3).bmp") ,0 ,0 ,0 ,0};
 //knopki_sart
 Button btn[4];
 
-btn[0] = {100, 100, 200, 40, "Ñòàðò", true};
-btn[1] = {100, 150, 200, 40, "Ïðàâèëà èãðû", true};
-btn[2] = {100, 200, 200, 40, "Âûõîä", true};
-btn[3] = {0, 0, 200, 40, "Íàçàä", true};
+btn[0] = {100, 100, 200, 40, "Ð¡Ñ‚Ð°Ñ€Ñ‚", true};
+btn[1] = {100, 150, 200, 40, "ÐŸÑ€Ð°Ð²Ð¸Ð»Ð° Ð¸Ð³Ñ€Ñ‹", true};
+btn[2] = {100, 200, 200, 40, "Ð’Ñ‹Ñ…Ð¾Ð´", true};
+btn[3] = {0, 0, 200, 40, "ÐÐ°Ð·Ð°Ð´", true};
 //knopki_konec
 //peremennie_start
 int timer = 0;
@@ -156,8 +156,11 @@ bool lampd = true;
 bool lampl = true;
 bool lampr = true;
 int hp0 = 40;
-int hp1 = 40;
+int hp1 = 5;
 int xp = 0;
+int tb = 0;
+int rb0 = 3;
+int rb1 = 2;
 //peremennie_konec
 
 //obiecti_start
@@ -186,6 +189,59 @@ character.l = false;
 
 character.x = 3;
 character.y = 2;
+
+Character character1  = {};
+
+character1.sech[0] = 00;
+character1.sech[1] = 10;
+character1.sech[2] = 20;
+character1.sech[3] = 01;
+character1.sech[4] = 11;
+character1.sech[5] = 21;
+character1.sech[6] = 02;
+character1.sech[7] = 12;
+character1.sech[8] = 22;
+character1.sech[9] = 03;
+character1.sech[10] = 13;
+character1.sech[11] = 23;
+
+character1.blits = txLoadImage("pixelarts/New Piskel (2).bmp" );
+character1.vizible = true;
+character1.index = 2;
+character1.r = false;
+character1.d = true;
+character1.u = false;
+character1.l = false;
+
+character1.x = 1;
+character1.y = 2;
+
+Character character2  = {};
+
+character2.sech[0] = 00;
+character2.sech[1] = 10;
+character2.sech[2] = 20;
+character2.sech[3] = 01;
+character2.sech[4] = 11;
+character2.sech[5] = 21;
+character2.sech[6] = 02;
+character2.sech[7] = 12;
+character2.sech[8] = 22;
+character2.sech[9] = 03;
+character2.sech[10] = 13;
+character2.sech[11] = 23;
+
+character2.blits = txLoadImage("pixelarts/New Piskel (2).bmp" );
+character2.vizible = true;
+character2.index = 3;
+character2.r = false;
+character2.d = true;
+character2.u = false;
+character2.l = false;
+
+character2.x = 5;
+character2.y = 2;
+
 Hp hp [10];
 hp[0] = {00 , txLoadImage("pixelarts/hp.bmp") ,0 ,0 ,640 ,0,true};
 hp[1] = {00 , txLoadImage("pixelarts/hp.bmp") ,0 ,0 ,640 ,33,true};
@@ -200,18 +256,9 @@ hp[9] = {01 , txLoadImage("pixelarts/hp.bmp") ,0 ,0 ,0 ,348,false};
 //obiecti_konec
 //podgruzca_kartinok_start
 HDC fon = txLoadImage("pixelarts/fon.bmp");
-//podgruzca_kartinok_start
-//glavnicikl
-while(!btn[2].click())
-{
-//start_random
-int ra = 0;
-ra += 1;
-if (ra >= 100){ra = 0;};
-int r = 0;
-r = abs(ra/10-1);
-//konec_random
-    //karta_i_otrisovka_start
+HDC boi = txLoadImage("pixelarts/boi.bmp");
+//podgruzca_kartinok_konec
+//karta_i_otrisovka_start
 int karta [35];
 
 karta[0] = 20;
@@ -254,6 +301,10 @@ karta[32] = 20;
 karta[33] = 20;
 karta[34] = 20;
 //karta_i_otrisovka_konec
+//glavnicikl
+while(!btn[2].click())
+{
+
     //chastoptimiz_start
     txBegin();
     txClear();
@@ -288,16 +339,17 @@ karta[34] = 20;
         txSelectFont ("Times", 20);
         txSetColor (RGB(255,255,255), 3);
         txSetFillColor (RGB(255,255,255));
-        txTextOut (50, 60+r, "âû ñëåïû , íî ÷óâñòâóåòå ìàãèþ;âàøà çàäà÷à ïîáåäèòü áîññîâ;");
-        txTextOut (50, 90, "8num - ïîâåðíóòüñÿ âïåðåä;2num - ïîâåðíóòüñÿ íàçàä;");
-        txTextOut (50, 120, "6num - ïîâåðíóòüñÿ âïðàâî;4num - ïîâåðíóòüñÿ âëåâî;");
-        txTextOut (50, 150, "ïðîòèâîïîëîæíàÿ êíîïêà âçàèìîäåéñòâèÿ - õîäüáà;");
-        txTextOut (50, 180, "ïðàâàÿ ÷àñòü ýêðàíà ïîêàçûâàåò íàïðàâëåíèå;");
-        txTextOut (50, 210, "ñåðäöå è xp äîáàâëÿþò ñåðäöà;ïîìíè ëþáîå ëåêàðñòâî â áîëüøèõ äîçàõ - âðåä;");
-        txTextOut (50, 240, "ïðèìåð èãðû: èãðîê íàæàë 4 íà íóìïàäå (íî íå àêêóðàòíî)");
-        txTextOut (50, 270, "è çàõîòåë ïîéòè, íàæàë 6(ïðîòèâîïîëîæíàÿ êíîïêà âçàèìîäåéñòâèÿ),");
-        txTextOut (50, 300, "íî òàê êàê íà ïàíåëè ñïðàâà íå îáîçíà÷åíî íàïðàâëåíèíå 'L'");
-        txTextOut (50, 330, "îí çàïóòàëñÿ è íà÷àë ìåòàòüñÿ èç ñòîðîíû â ñòîðîíó ;");
+        txTextOut (50, 60, "Ð²Ñ‹ ÑÐ»ÐµÐ¿Ñ‹ , Ð½Ð¾ Ñ‡ÑƒÐ²ÑÑ‚Ð²ÑƒÐµÑ‚Ðµ Ð¼Ð°Ð³Ð¸ÑŽ;Ð²Ð°ÑˆÐ° Ð·Ð°Ð´Ð°Ñ‡Ð° Ð¿Ð¾Ð±ÐµÐ´Ð¸Ñ‚ÑŒ Ð±Ð¾ÑÑÐ¾Ð²;");
+        txTextOut (50, 90, "8num - Ð¿Ð¾Ð²ÐµÑ€Ð½ÑƒÑ‚ÑŒÑÑ Ð²Ð¿ÐµÑ€ÐµÐ´;2num - Ð¿Ð¾Ð²ÐµÑ€Ð½ÑƒÑ‚ÑŒÑÑ Ð½Ð°Ð·Ð°Ð´;");
+        txTextOut (50, 120, "6num - Ð¿Ð¾Ð²ÐµÑ€Ð½ÑƒÑ‚ÑŒÑÑ Ð²Ð¿Ñ€Ð°Ð²Ð¾;4num - Ð¿Ð¾Ð²ÐµÑ€Ð½ÑƒÑ‚ÑŒÑÑ Ð²Ð»ÐµÐ²Ð¾;");
+        txTextOut (50, 150, "Ð¿Ñ€Ð¾Ñ‚Ð¸Ð²Ð¾Ð¿Ð¾Ð»Ð¾Ð¶Ð½Ð°Ñ ÐºÐ½Ð¾Ð¿ÐºÐ° Ð²Ð·Ð°Ð¸Ð¼Ð¾Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ - Ñ…Ð¾Ð´ÑŒÐ±Ð°;");
+        txTextOut (50, 180, "Ð¿Ñ€Ð°Ð²Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ ÑÐºÑ€Ð°Ð½Ð° Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÑ‚ Ð½Ð°Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ;");
+        txTextOut (50, 210, "ÑÐµÑ€Ð´Ñ†Ðµ Ð¸ xp Ð´Ð¾Ð±Ð°Ð²Ð»ÑÑŽÑ‚ ÑÐµÑ€Ð´Ñ†Ð°;Ð¿Ð¾Ð¼Ð½Ð¸ Ð»ÑŽÐ±Ð¾Ðµ Ð»ÐµÐºÐ°Ñ€ÑÑ‚Ð²Ð¾ Ð² Ð±Ð¾Ð»ÑŒÑˆÐ¸Ñ… Ð´Ð¾Ð·Ð°Ñ… - Ð²Ñ€ÐµÐ´;");
+        txTextOut (50, 240, "Ð¿Ñ€Ð¸Ð¼ÐµÑ€ Ð¸Ð³Ñ€Ñ‹: Ð¸Ð³Ñ€Ð¾Ðº Ð½Ð°Ð¶Ð°Ð» 4 Ð½Ð° Ð½ÑƒÐ¼Ð¿Ð°Ð´Ðµ (Ð½Ð¾ Ð½Ðµ Ð°ÐºÐºÑƒÑ€Ð°Ñ‚Ð½Ð¾)");
+        txTextOut (50, 270, "Ð¸ Ð·Ð°Ñ…Ð¾Ñ‚ÐµÐ» Ð¿Ð¾Ð¹Ñ‚Ð¸, Ð½Ð°Ð¶Ð°Ð» 6(Ð¿Ñ€Ð¾Ñ‚Ð¸Ð²Ð¾Ð¿Ð¾Ð»Ð¾Ð¶Ð½Ð°Ñ ÐºÐ½Ð¾Ð¿ÐºÐ° Ð²Ð·Ð°Ð¸Ð¼Ð¾Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ),");
+        txTextOut (50, 300, "Ð½Ð¾ Ñ‚Ð°Ðº ÐºÐ°Ðº Ð½Ð° Ð¿Ð°Ð½ÐµÐ»Ð¸ ÑÐ¿Ñ€Ð°Ð²Ð° Ð½Ðµ Ð¾Ð±Ð¾Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¾ Ð½Ð°Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ð½Ðµ 'L'");
+        txTextOut (50, 330, "Ð¾Ð½ Ð·Ð°Ð¿ÑƒÑ‚Ð°Ð»ÑÑ Ð¸ Ð½Ð°Ñ‡Ð°Ð» Ð¼ÐµÑ‚Ð°Ñ‚ÑŒÑÑ Ð¸Ð· ÑÑ‚Ð¾Ñ€Ð¾Ð½Ñ‹ Ð² ÑÑ‚Ð¾Ñ€Ð¾Ð½Ñƒ ;");
+        txTextOut (50, 360, "Ð² Ð±Ð¾ÑŽ Ð½ÑƒÐ¶Ð½Ð¾ Ð½Ð°Ð¶Ð¸Ð¼Ð°Ñ‚ÑŒ Ð½Ð° Ñ‡Ð¸ÑÐ»Ð° Ñ Ð½ÑƒÐ¼ Ð¿Ð°Ð´Ð°;");
         if(btn[3].click() || GetAsyncKeyState(VK_ESCAPE))
         {
             PAGE = "menu";
@@ -331,6 +383,8 @@ karta[34] = 20;
         }
         timer = 0;
         character.draw();
+        character1.draw();
+        character2.draw();
 //start_upravlenie
 
         if(lampu & lampd & lampr)
@@ -376,7 +430,7 @@ karta[34] = 20;
         }
         }
         if(lampl & lampd & lampr)
-        {r = 0;
+        {
         if(GetAsyncKeyState(VK_NUMPAD8))
         {
             if (!lampu)
@@ -561,8 +615,7 @@ karta[34] = 20;
         karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y)] == 21 or karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y)] == 02 or
         karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y)] == 12)
     {
-        txDestroyWindow();
-        txDeleteDC(fon);
+        exit(0);
     }
     if
         (
@@ -593,6 +646,196 @@ karta[34] = 20;
         hp0 = hp0 + 1;
     }
 //konec_sostaianie
+//start_bitvi
+if (character.x == character1.x && character.y == character1.y or character.x == character2.x && character.y == character2.y)
+{
+    txSelectFont("Times New Roman", 30);
+    txSetColor (RGB(255,255,255));
+    txBitBlt(txDC(), 0, 0, 672, 480, boi);
+    tb += 1;
+
+    if (tb >= 1000)
+    {
+        tb = 0;
+        rb1 = 1 + rand() % 5;
+        rb0 = 1 + rand() % 5;
+        hp0 -= 12;
+    }
+    if (rb0 == 1)
+    {
+        if (rb1 == 1)
+        {
+            txTextOut (50, 400, "7");
+        }
+        if (rb1 == 2)
+        {
+            txTextOut (178, 200, "x-7=0");
+        }
+        if (rb1 == 3)
+        {
+            txTextOut (458, 100, "49^0,5");
+        }
+        if (rb1 == 4)
+        {
+            txTextOut (12, 10, "10!/518400");
+
+        }
+        if (rb1 == 5)
+        {
+            txTextOut (278, 153, "x-x^2=-42");
+
+        }
+        if(GetAsyncKeyState(VK_NUMPAD7))
+        {
+            hp1 -= 1;
+            tb = 0;
+            rb1 = 1 + rand() % 5;
+            rb0 = 1 + rand() % 5;
+        }
+        if(GetAsyncKeyState(VK_NUMPAD9) or GetAsyncKeyState(VK_NUMPAD1) or GetAsyncKeyState(VK_NUMPAD3))
+        {
+            tb = 0;
+            rb1 = 1 + rand() % 5;
+            rb0 = 1 + rand() % 5;
+            hp0 -= 12;
+        }
+    }
+    if (rb0 == 2)
+    {
+        if (rb1 == 1)
+        {
+            txTextOut (50, 400, "9");
+        }
+        if (rb1 == 2)
+        {
+            txTextOut (12, 10, "x-9=0");
+        }
+        if (rb1 == 3)
+        {
+            txTextOut (178, 200, "81^0,5");
+        }
+        if (rb1 == 4)
+        {
+            txTextOut (278, 153, "27!/1209874383379816906752000000");
+
+        }
+        if (rb1 == 5)
+        {
+            txTextOut (458, 100, "x-x^2=-72");
+
+        }
+        if(GetAsyncKeyState(VK_NUMPAD9))
+        {
+            hp1 -= 1;
+            tb = 0;
+            rb1 = 1 + rand() % 5;
+            rb0 = 1 + rand() % 5;
+        }
+        if(GetAsyncKeyState(VK_NUMPAD7) or GetAsyncKeyState(VK_NUMPAD1) or GetAsyncKeyState(VK_NUMPAD3))
+        {
+            tb = 0;
+            rb1 = 1 + rand() % 5;
+            rb0 = 1 + rand() % 5;
+            hp0 -= 12;
+        }
+    }
+    if (rb0 == 3)
+    {
+        if (rb1 == 1)
+        {
+            txTextOut (150, 300, "1");
+        }
+        if (rb1 == 2)
+        {
+            txTextOut (112, 110, "x-1=0");
+        }
+        if (rb1 == 3)
+        {
+            txTextOut (78, 200, "1^0,5");
+        }
+        if (rb1 == 4)
+        {
+            txTextOut (178, 53, "7!/5040");
+
+        }
+        if (rb1 == 5)
+        {
+            txTextOut (358, 100, "x-x^2=0");
+
+        }
+        if(GetAsyncKeyState(VK_NUMPAD1))
+        {
+            hp1 -= 1;
+            tb = 0;
+            rb1 = 1 + rand() % 5;
+            rb0 = 1 + rand() % 5;
+        }
+        if(GetAsyncKeyState(VK_NUMPAD9) or GetAsyncKeyState(VK_NUMPAD7) or GetAsyncKeyState(VK_NUMPAD3))
+        {
+            tb = 0;
+            rb1 = 1 + rand() % 5;
+            rb0 = 1 + rand() % 5;
+            hp0 -= 12;
+        }
+    }
+    if (rb0 == 4)
+    {
+        if (rb1 == 1)
+        {
+            txTextOut (150, 300, "3");
+        }
+        if (rb1 == 2)
+        {
+            txTextOut (112, 110, "x-3=0");
+        }
+        if (rb1 == 3)
+        {
+            txTextOut (78, 200, "9^0,5");
+        }
+        if (rb1 == 4)
+        {
+            txTextOut (178, 53, "12!/159667200");
+
+        }
+        if (rb1 == 5)
+        {
+            txTextOut (358, 100, "x-x^2=-6");
+
+        }
+        if(GetAsyncKeyState(VK_NUMPAD3))
+        {
+            hp1 -= 1;
+            tb = 0;
+            rb1 = 1 + rand() % 5;
+            rb0 = 1 + rand() % 5;
+        }
+        if(GetAsyncKeyState(VK_NUMPAD9) or GetAsyncKeyState(VK_NUMPAD1) or GetAsyncKeyState(VK_NUMPAD7))
+        {
+            tb = 0;
+            rb1 = 1 + rand() % 5;
+            rb0 = 1 + rand() % 5;
+            hp0 -= 12;
+        }
+    }
+    if (rb0 == 5 or hp1 <= 0)
+    {
+        if(character.x == character1.x && character.y == character1.y)
+        {
+            character1.x = -1;
+            character1.y = -1;
+            hp1 += 5;
+        }
+        if(character.x == character2.x && character.y == character2.y)
+        {
+            character2.x = -1;
+            character2.y = -1;
+            hp1 += 5;
+        }
+    }
+}
+
+
+//konec_bitvi
 //start_hpandxp
  if (xp == 1)
     {
@@ -645,14 +888,58 @@ if (hp0 >= 101 & hp0 <=120)
  }
 if (hp0 < 20)
 {
-      txDestroyWindow();
-        txDeleteDC(fon);
+    exit(0);
+}
+if (hp1 == 1)
+{
+    hp[5].job == true;
+    hp[6].job == false;
+    hp[7].job == false;
+    hp[8].job == false;
+    hp[9].job == false;
+}
+if (hp1 == 2)
+{
+    hp[5].job == true;
+    hp[6].job == true;
+    hp[7].job == false;
+    hp[8].job == false;
+    hp[9].job == false;
+}
+if (hp1 == 3)
+{
+    hp[5].job == true;
+    hp[6].job == true;
+    hp[7].job == true;
+    hp[8].job == false;
+    hp[9].job == false;
+}
+if (hp1 == 4)
+{
+    hp[5].job == true;
+    hp[6].job == true;
+    hp[7].job == true;
+    hp[8].job == true;
+    hp[9].job == false;
+}
+if (hp1 == 5)
+{
+    hp[5].job == true;
+    hp[6].job == true;
+    hp[7].job == true;
+    hp[8].job == true;
+    hp[9].job == true;
 }
 hp[0].vid();
 hp[1].vid();
 hp[2].vid();
 hp[3].vid();
 hp[4].vid();
+hp[5].vid();
+hp[6].vid();
+hp[7].vid();
+hp[8].vid();
+hp[9].vid();
 hp[0].draw();
 hp[1].draw();
 hp[2].draw();
@@ -664,7 +951,26 @@ if(hp[4].job)
 {
     hp[4].draw();
 }
-
+if(hp[5].job)
+{
+    hp[5].draw();
+}
+if(hp[6].job)
+{
+    hp[6].draw();
+}
+if(hp[7].job)
+{
+    hp[7].draw();
+}
+if(hp[8].job)
+{
+    hp[8].draw();
+}
+if(hp[9].job)
+{
+    hp[9].draw();
+}
 //konec_hpandxp
     if(GetAsyncKeyState(VK_ESCAPE))
         {
@@ -681,6 +987,7 @@ if(hp[4].job)
 }
 txDestroyWindow();
 txDeleteDC(fon);
+txDeleteDC(boi);
 }
 
 

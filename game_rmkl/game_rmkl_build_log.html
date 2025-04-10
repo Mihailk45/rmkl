@@ -4,8 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 <tt>
-Build started on: <u>01-04-2025 at 18:05.04</u><br />
-Build ended on: <u>01-04-2025 at 18:05.17</u><p />
+Build started on: <u>10-04-2025 at 13:02.41</u><br />
+Build ended on: <u>10-04-2025 at 13:02.52</u><p />
 <b>-------------- Build: Debug in game_rmkl (compiler: GNU GCC Compiler)---------------</b><br />
 g++.exe -Wall -fexceptions -g  -c C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp -o obj\Debug\main.o<br />
 C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp: In constructor 'Character::Character()':<br />
@@ -21,31 +21,106 @@ C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp: In constructor 'Character::Charac
 <font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:71:7: warning: 'Character::u' should be initialized in the member initialization list [-Weffc++]</font><br />
 <font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:71:7: warning: 'Character::d' should be initialized in the member initialization list [-Weffc++]</font><br />
 C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp: In function 'int main()':<br />
-C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:164:25: note: synthesized method 'Character::Character()' first required here <br />
+C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:167:25: note: synthesized method 'Character::Character()' first required here <br />
  Character character  = {};<br />
                          ^<br />
-<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:611:9: warning: suggest parentheses around comparison in operand of '&amp;' [-Wparentheses]</font><br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:650:33: warning: suggest parentheses around '&amp;&amp;' within '||' [-Wparentheses]</font><br />
+ if (character.x == character1.x &amp;&amp; character.y == character1.y or character.x == character2.x &amp;&amp; character.y == character2.y)<br />
+                                 ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:854:9: warning: suggest parentheses around comparison in operand of '&amp;' [-Wparentheses]</font><br />
  if (hp0 &gt;= 20 &amp; hp0 &lt;=40)<br />
          ^<br />
-<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:618:10: warning: suggest parentheses around comparison in operand of '&amp;' [-Wparentheses]</font><br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:861:10: warning: suggest parentheses around comparison in operand of '&amp;' [-Wparentheses]</font><br />
   if (hp0 &gt;= 41 &amp; hp0 &lt;=60)<br />
           ^<br />
-<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:625:9: warning: suggest parentheses around comparison in operand of '&amp;' [-Wparentheses]</font><br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:868:9: warning: suggest parentheses around comparison in operand of '&amp;' [-Wparentheses]</font><br />
  if (hp0 &gt;= 61 &amp; hp0 &lt;=80)<br />
          ^<br />
-<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:632:9: warning: suggest parentheses around comparison in operand of '&amp;' [-Wparentheses]</font><br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:875:9: warning: suggest parentheses around comparison in operand of '&amp;' [-Wparentheses]</font><br />
  if (hp0 &gt;= 81 &amp; hp0 &lt;=100)<br />
          ^<br />
-<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:639:9: warning: suggest parentheses around comparison in operand of '&amp;' [-Wparentheses]</font><br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:882:9: warning: suggest parentheses around comparison in operand of '&amp;' [-Wparentheses]</font><br />
  if (hp0 &gt;= 101 &amp; hp0 &lt;=120)<br />
          ^<br />
-<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:159:5: warning: unused variable 'hp1' [-Wunused-variable]</font><br />
- int hp1 = 40;<br />
-     ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:895:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[5].job == true;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:896:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[6].job == false;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:897:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[7].job == false;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:898:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[8].job == false;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:899:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[9].job == false;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:903:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[5].job == true;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:904:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[6].job == true;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:905:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[7].job == false;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:906:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[8].job == false;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:907:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[9].job == false;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:911:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[5].job == true;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:912:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[6].job == true;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:913:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[7].job == true;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:914:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[8].job == false;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:915:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[9].job == false;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:919:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[5].job == true;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:920:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[6].job == true;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:921:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[7].job == true;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:922:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[8].job == true;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:923:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[9].job == false;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:927:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[5].job == true;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:928:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[6].job == true;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:929:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[7].job == true;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:930:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[8].job == true;<br />
+               ^<br />
+<font color="#0000ff">C:\Users\user\Desktop\xt_m\game_rmkl\main.cpp:931:15: warning: statement has no effect [-Wunused-value]</font><br />
+     hp[9].job == true;<br />
+               ^<br />
 g++.exe  -o bin\Debug\game_rmkl.exe obj\Debug\main.o    -mwindows<br />
-Output file is bin\Debug\game_rmkl.exe with size 2,18 MB<br />
-<font color="#0000ff">Process terminated with status 0 (0 minute(s), 13 second(s))</font><br />
-<font color="#0000ff">0 error(s), 15 warning(s) (0 minute(s), 13 second(s))</font><br />
+Output file is bin\Debug\game_rmkl.exe with size 2,19 MB<br />
+<font color="#0000ff">Process terminated with status 0 (0 minute(s), 10 second(s))</font><br />
+<font color="#0000ff">0 error(s), 40 warning(s) (0 minute(s), 10 second(s))</font><br />
 </tt>
 </body>
 </html>
