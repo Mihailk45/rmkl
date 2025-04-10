@@ -142,10 +142,10 @@ Vizual vizual = {0 , txLoadImage("pixelarts/New Piskel (3).bmp") ,0 ,0 ,0 ,0};
 //knopki_sart
 Button btn[4];
 
-btn[0] = {100, 100, 200, 40, "Ğ¡Ñ‚Ğ°Ñ€Ñ‚", true};
-btn[1] = {100, 150, 200, 40, "ĞŸÑ€Ğ°Ğ²Ğ¸Ğ»Ğ° Ğ¸Ğ³Ñ€Ñ‹", true};
-btn[2] = {100, 200, 200, 40, "Ğ’Ñ‹Ñ…Ğ¾Ğ´", true};
-btn[3] = {0, 0, 200, 40, "ĞĞ°Ğ·Ğ°Ğ´", true};
+btn[0] = {100, 100, 200, 40, "ïğîäîëæèòü", true};
+btn[1] = {100, 150, 200, 40, "ïğàâèëà", true};
+btn[2] = {100, 200, 200, 40, "âûéòè", true};
+btn[3] = {0, 0, 200, 40, "âûéòè", true};
 //knopki_konec
 //peremennie_start
 int timer = 0;
@@ -161,6 +161,8 @@ int xp = 0;
 int tb = 0;
 int rb0 = 3;
 int rb1 = 2;
+int maxx = 0;
+int maxy = 0;
 //peremennie_konec
 
 //obiecti_start
@@ -192,6 +194,9 @@ character.y = 2;
 
 Character character1  = {};
 
+character1.x = 1;
+character1.y = 2;
+
 character1.sech[0] = 00;
 character1.sech[1] = 10;
 character1.sech[2] = 20;
@@ -207,14 +212,6 @@ character1.sech[11] = 23;
 
 character1.blits = txLoadImage("pixelarts/New Piskel (2).bmp" );
 character1.vizible = true;
-character1.index = 2;
-character1.r = false;
-character1.d = true;
-character1.u = false;
-character1.l = false;
-
-character1.x = 1;
-character1.y = 2;
 
 Character character2  = {};
 
@@ -231,16 +228,11 @@ character2.sech[9] = 03;
 character2.sech[10] = 13;
 character2.sech[11] = 23;
 
-character2.blits = txLoadImage("pixelarts/New Piskel (2).bmp" );
-character2.vizible = true;
-character2.index = 3;
-character2.r = false;
-character2.d = true;
-character2.u = false;
-character2.l = false;
-
 character2.x = 5;
 character2.y = 2;
+
+character2.blits = txLoadImage("pixelarts/New Piskel (2).bmp" );
+character2.vizible = true;
 
 Hp hp [10];
 hp[0] = {00 , txLoadImage("pixelarts/hp.bmp") ,0 ,0 ,640 ,0,true};
@@ -258,53 +250,239 @@ hp[9] = {01 , txLoadImage("pixelarts/hp.bmp") ,0 ,0 ,0 ,348,false};
 HDC fon = txLoadImage("pixelarts/fon.bmp");
 HDC boi = txLoadImage("pixelarts/boi.bmp");
 //podgruzca_kartinok_konec
-//karta_i_otrisovka_start
-int karta [35];
-
-karta[0] = 20;
-karta[1] = 20;
-karta[2] = 20;
-karta[3] = 20;
-karta[4] = 20;
-karta[5] = 20;
-karta[6] = 20;
-
-karta[7] = 20;
-karta[8] = 00;
-karta[9] = 00;
-karta[10] = 00;
-karta[11] = 00;
-karta[12] = 00;
-karta[13] = 20;
-
-karta[14] = 20;
-karta[15] = 00;
-karta[16] = 00;
-karta[17] = 03;
-karta[18] = 00;
-karta[19] = 00;
-karta[20] = 20;
-
-karta[21] = 20;
-karta[22] = 00;
-karta[23] = 00;
-karta[24] = 00;
-karta[25] = 00;
-karta[26] = 00;
-karta[27] = 20;
-
-karta[28] = 20;
-karta[29] = 20;
-karta[30] = 20;
-karta[31] = 20;
-karta[32] = 20;
-karta[33] = 20;
-karta[34] = 20;
-//karta_i_otrisovka_konec
 //glavnicikl
 while(!btn[2].click())
 {
 
+//start_vragi
+if (maxx == 0 && maxy == 0)
+{
+    character2.index = 3;
+    character2.r = false;
+    character2.d = false;
+    character2.u = false;
+    character2.l = true;
+
+    character1.index = 2;
+    character1.r = true;
+    character1.d = false;
+    character1.u = false;
+    character1.l = false;
+}
+if (maxx == 0 && maxy == 1)
+{
+    character2.index = 2;
+    character2.r = false;
+    character2.d = false;
+    character2.u = false;
+    character2.l = true;
+
+    character1.index = 2;
+    character1.r = true;
+    character1.d = false;
+    character1.u = false;
+    character1.l = false;
+}
+if (maxx == 1 && maxy == 1)
+{
+    character2.index = 3;
+    character2.r = false;
+    character2.d = false;
+    character2.u = false;
+    character2.l = true;
+
+    character1.index = 2;
+    character1.r = true;
+    character1.d = false;
+    character1.u = false;
+    character1.l = false;
+}
+if (maxx == -1 && maxy == 1)
+{
+    character2.index = 2;
+    character2.r = false;
+    character2.d = false;
+    character2.u = false;
+    character2.l = true;
+
+    character1.index = 3;
+    character1.r = true;
+    character1.d = false;
+    character1.u = false;
+    character1.l = false;
+}
+//konec_vragi
+    //karta_i_otrisovka_start
+int karta [35];
+if (maxx == 0 && maxy == 0)
+{
+    karta[0] = 20;
+    karta[1] = 20;
+    karta[2] = 20;
+    karta[3] = 00;
+    karta[4] = 20;
+    karta[5] = 20;
+    karta[6] = 20;
+
+    karta[7] = 20;
+    karta[8] = 00;
+    karta[9] = 00;
+    karta[10] = 00;
+    karta[11] = 00;
+    karta[12] = 00;
+    karta[13] = 20;
+
+    karta[14] = 20;
+    karta[15] = 00;
+    karta[16] = 00;
+    karta[17] = 03;
+    karta[18] = 00;
+    karta[19] = 00;
+    karta[20] = 20;
+
+    karta[21] = 20;
+    karta[22] = 00;
+    karta[23] = 00;
+    karta[24] = 00;
+    karta[25] = 00;
+    karta[26] = 00;
+    karta[27] = 20;
+
+    karta[28] = 20;
+    karta[29] = 20;
+    karta[30] = 20;
+    karta[31] = 20;
+    karta[32] = 20;
+    karta[33] = 20;
+    karta[34] = 20;
+}
+if (maxx == 0 && maxy == 1)
+{
+    karta[0] = 12;
+    karta[1] = 12;
+    karta[2] = 12;
+    karta[3] = 12;
+    karta[4] = 12;
+    karta[5] = 12;
+    karta[6] = 12;
+
+    karta[7] = 12;
+    karta[8] = 11;
+    karta[9] = 11;
+    karta[10] = 11;
+    karta[11] = 11;
+    karta[12] = 11;
+    karta[13] = 12;
+
+    karta[14] = 21;
+    karta[15] = 11;
+    karta[16] = 11;
+    karta[17] = 13;
+    karta[18] = 11;
+    karta[19] = 11;
+    karta[20] = 21;
+
+    karta[21] = 12;
+    karta[22] = 11;
+    karta[23] = 11;
+    karta[24] = 11;
+    karta[25] = 11;
+    karta[26] = 11;
+    karta[27] = 12;
+
+    karta[28] = 12;
+    karta[29] = 12;
+    karta[30] = 12;
+    karta[31] = 11;
+    karta[32] = 12;
+    karta[33] = 12;
+    karta[34] = 12;
+}
+if (maxx == 1 && maxy == 1)
+{
+    karta[0] = 12;
+    karta[1] = 12;
+    karta[2] = 12;
+    karta[3] = 12;
+    karta[4] = 12;
+    karta[5] = 12;
+    karta[6] = 12;
+
+    karta[7] = 12;
+    karta[8] = 11;
+    karta[9] = 11;
+    karta[10] = 11;
+    karta[11] = 11;
+    karta[12] = 11;
+    karta[13] = 12;
+
+    karta[14] = 21;
+    karta[15] = 11;
+    karta[16] = 11;
+    karta[17] = 11;
+    karta[18] = 11;
+    karta[19] = 11;
+    karta[20] = 12;
+
+    karta[21] = 12;
+    karta[22] = 11;
+    karta[23] = 11;
+    karta[24] = 11;
+    karta[25] = 11;
+    karta[26] = 11;
+    karta[27] = 12;
+
+    karta[28] = 12;
+    karta[29] = 12;
+    karta[30] = 12;
+    karta[31] = 12;
+    karta[32] = 12;
+    karta[33] = 12;
+    karta[34] = 12;
+}
+if (maxx == -1 && maxy == 1)
+{
+    karta[0] = 12;
+    karta[1] = 12;
+    karta[2] = 12;
+    karta[3] = 12;
+    karta[4] = 12;
+    karta[5] = 12;
+    karta[6] = 12;
+
+    karta[7] = 12;
+    karta[8] = 11;
+    karta[9] = 11;
+    karta[10] = 11;
+    karta[11] = 11;
+    karta[12] = 11;
+    karta[13] = 12;
+
+    karta[14] = 12;
+    karta[15] = 11;
+    karta[16] = 11;
+    karta[17] = 11;
+    karta[18] = 11;
+    karta[19] = 11;
+    karta[20] = 21;
+
+    karta[21] = 12;
+    karta[22] = 11;
+    karta[23] = 11;
+    karta[24] = 11;
+    karta[25] = 11;
+    karta[26] = 11;
+    karta[27] = 12;
+
+    karta[28] = 12;
+    karta[29] = 12;
+    karta[30] = 12;
+    karta[31] = 12;
+    karta[32] = 12;
+    karta[33] = 12;
+    karta[34] = 12;
+}
+//karta_i_otrisovka_konec
     //chastoptimiz_start
     txBegin();
     txClear();
@@ -339,17 +517,17 @@ while(!btn[2].click())
         txSelectFont ("Times", 20);
         txSetColor (RGB(255,255,255), 3);
         txSetFillColor (RGB(255,255,255));
-        txTextOut (50, 60, "Ğ²Ñ‹ ÑĞ»ĞµĞ¿Ñ‹ , Ğ½Ğ¾ Ñ‡ÑƒĞ²ÑÑ‚Ğ²ÑƒĞµÑ‚Ğµ Ğ¼Ğ°Ğ³Ğ¸Ñ;Ğ²Ğ°ÑˆĞ° Ğ·Ğ°Ğ´Ğ°Ñ‡Ğ° Ğ¿Ğ¾Ğ±ĞµĞ´Ğ¸Ñ‚ÑŒ Ğ±Ğ¾ÑÑĞ¾Ğ²;");
-        txTextOut (50, 90, "8num - Ğ¿Ğ¾Ğ²ĞµÑ€Ğ½ÑƒÑ‚ÑŒÑÑ Ğ²Ğ¿ĞµÑ€ĞµĞ´;2num - Ğ¿Ğ¾Ğ²ĞµÑ€Ğ½ÑƒÑ‚ÑŒÑÑ Ğ½Ğ°Ğ·Ğ°Ğ´;");
-        txTextOut (50, 120, "6num - Ğ¿Ğ¾Ğ²ĞµÑ€Ğ½ÑƒÑ‚ÑŒÑÑ Ğ²Ğ¿Ñ€Ğ°Ğ²Ğ¾;4num - Ğ¿Ğ¾Ğ²ĞµÑ€Ğ½ÑƒÑ‚ÑŒÑÑ Ğ²Ğ»ĞµĞ²Ğ¾;");
-        txTextOut (50, 150, "Ğ¿Ñ€Ğ¾Ñ‚Ğ¸Ğ²Ğ¾Ğ¿Ğ¾Ğ»Ğ¾Ğ¶Ğ½Ğ°Ñ ĞºĞ½Ğ¾Ğ¿ĞºĞ° Ğ²Ğ·Ğ°Ğ¸Ğ¼Ğ¾Ğ´ĞµĞ¹ÑÑ‚Ğ²Ğ¸Ñ - Ñ…Ğ¾Ğ´ÑŒĞ±Ğ°;");
-        txTextOut (50, 180, "Ğ¿Ñ€Ğ°Ğ²Ğ°Ñ Ñ‡Ğ°ÑÑ‚ÑŒ ÑĞºÑ€Ğ°Ğ½Ğ° Ğ¿Ğ¾ĞºĞ°Ğ·Ñ‹Ğ²Ğ°ĞµÑ‚ Ğ½Ğ°Ğ¿Ñ€Ğ°Ğ²Ğ»ĞµĞ½Ğ¸Ğµ;");
-        txTextOut (50, 210, "ÑĞµÑ€Ğ´Ñ†Ğµ Ğ¸ xp Ğ´Ğ¾Ğ±Ğ°Ğ²Ğ»ÑÑÑ‚ ÑĞµÑ€Ğ´Ñ†Ğ°;Ğ¿Ğ¾Ğ¼Ğ½Ğ¸ Ğ»ÑĞ±Ğ¾Ğµ Ğ»ĞµĞºĞ°Ñ€ÑÑ‚Ğ²Ğ¾ Ğ² Ğ±Ğ¾Ğ»ÑŒÑˆĞ¸Ñ… Ğ´Ğ¾Ğ·Ğ°Ñ… - Ğ²Ñ€ĞµĞ´;");
-        txTextOut (50, 240, "Ğ¿Ñ€Ğ¸Ğ¼ĞµÑ€ Ğ¸Ğ³Ñ€Ñ‹: Ğ¸Ğ³Ñ€Ğ¾Ğº Ğ½Ğ°Ğ¶Ğ°Ğ» 4 Ğ½Ğ° Ğ½ÑƒĞ¼Ğ¿Ğ°Ğ´Ğµ (Ğ½Ğ¾ Ğ½Ğµ Ğ°ĞºĞºÑƒÑ€Ğ°Ñ‚Ğ½Ğ¾)");
-        txTextOut (50, 270, "Ğ¸ Ğ·Ğ°Ñ…Ğ¾Ñ‚ĞµĞ» Ğ¿Ğ¾Ğ¹Ñ‚Ğ¸, Ğ½Ğ°Ğ¶Ğ°Ğ» 6(Ğ¿Ñ€Ğ¾Ñ‚Ğ¸Ğ²Ğ¾Ğ¿Ğ¾Ğ»Ğ¾Ğ¶Ğ½Ğ°Ñ ĞºĞ½Ğ¾Ğ¿ĞºĞ° Ğ²Ğ·Ğ°Ğ¸Ğ¼Ğ¾Ğ´ĞµĞ¹ÑÑ‚Ğ²Ğ¸Ñ),");
-        txTextOut (50, 300, "Ğ½Ğ¾ Ñ‚Ğ°Ğº ĞºĞ°Ğº Ğ½Ğ° Ğ¿Ğ°Ğ½ĞµĞ»Ğ¸ ÑĞ¿Ñ€Ğ°Ğ²Ğ° Ğ½Ğµ Ğ¾Ğ±Ğ¾Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¾ Ğ½Ğ°Ğ¿Ñ€Ğ°Ğ²Ğ»ĞµĞ½Ğ¸Ğ½Ğµ 'L'");
-        txTextOut (50, 330, "Ğ¾Ğ½ Ğ·Ğ°Ğ¿ÑƒÑ‚Ğ°Ğ»ÑÑ Ğ¸ Ğ½Ğ°Ñ‡Ğ°Ğ» Ğ¼ĞµÑ‚Ğ°Ñ‚ÑŒÑÑ Ğ¸Ğ· ÑÑ‚Ğ¾Ñ€Ğ¾Ğ½Ñ‹ Ğ² ÑÑ‚Ğ¾Ñ€Ğ¾Ğ½Ñƒ ;");
-        txTextOut (50, 360, "Ğ² Ğ±Ğ¾Ñ Ğ½ÑƒĞ¶Ğ½Ğ¾ Ğ½Ğ°Ğ¶Ğ¸Ğ¼Ğ°Ñ‚ÑŒ Ğ½Ğ° Ñ‡Ğ¸ÑĞ»Ğ° Ñ Ğ½ÑƒĞ¼ Ğ¿Ğ°Ğ´Ğ°;");
+        txTextOut (50, 60, "âû ñëåïû , íî ÷óâñòâóåòå ìàãèş;âàøà çàäà÷à ïîáåäèòü áîññîâ;");
+        txTextOut (50, 90, "8num - ïîâåğíóòüñÿ âïåğåä;2num - ïîâåğíóòüñÿ íàçàä;");
+        txTextOut (50, 120, "6num - ïîâåğíóòüñÿ âïğàâî;4num - ïîâåğíóòüñÿ âëåâî;");
+        txTextOut (50, 150, "ïğîòèâîïîëîæíàÿ êíîïêà âçàèìîäåéñòâèÿ - õîäüáà;");
+        txTextOut (50, 180, "ïğàâàÿ ÷àñòü ıêğàíà ïîêàçûâàåò íàïğàâëåíèå;");
+        txTextOut (50, 210, "ñåğäöå è xp äîáàâëÿşò ñåğäöà;ïîìíè ëşáîå ëåêàğñòâî â áîëüøèõ äîçàõ - âğåä;");
+        txTextOut (50, 240, "ïğèìåğ èãğû: èãğîê íàæàë 4 íà íóìïàäå (íî íå àêêóğàòíî)");
+        txTextOut (50, 270, "è çàõîòåë ïîéò, íàæàë 6(ïğîòèâîïîëîæíàÿ êíîïêà âçàèìîäåéñòâèÿ),");
+        txTextOut (50, 300, "íî òàê êàê íà ïàíåëè ñïğàâà íå îáîçíà÷åíî íàïğàâëåíèíå 'L'");
+        txTextOut (50, 330, "îí çàïóòàëñÿ è íà÷àë ìåòàòüñÿ èç ñòîğîíû â ñòîğîíó ;");
+        txTextOut (50, 360, "âî âğåìÿ áîÿ íàæèìàé íà ÷èñëà íà íóìïàäå, êîòîğûå ïîêàçûâàşòñÿ â âèäå ïğèìåğîâ;");
         if(btn[3].click() || GetAsyncKeyState(VK_ESCAPE))
         {
             PAGE = "menu";
@@ -549,8 +727,7 @@ while(!btn[2].click())
 
         if (
             karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) - 1] != 20 && karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) - 1] != 01 &&
-            karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) - 1] != 21 && karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) - 1] != 02 &&
-            karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) - 1] != 12
+            karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) - 1] != 02 && karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) - 1] != 12
             )
         {
             if(character.l)
@@ -564,8 +741,7 @@ while(!btn[2].click())
         }
         if (
             karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) + 1] != 20 && karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) + 1] != 01 &&
-            karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) + 1] != 21 && karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) + 1] != 02 &&
-            karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) + 1] != 12
+            karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) + 1] != 02 && karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) + 1] != 12
             )
         {
             if(character.r)
@@ -579,8 +755,7 @@ while(!btn[2].click())
         }
          if (
             karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) + 7] != 20 && karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) + 7] != 01 &&
-            karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) + 7] != 21 && karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) + 7] != 02 &&
-            karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) + 7] != 12
+            karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) + 7] != 02 && karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) + 7] != 12
             )
         {
             if(character.d)
@@ -594,8 +769,7 @@ while(!btn[2].click())
         }
          if (
             karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) - 7] != 20 && karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) - 7] != 01 &&
-            karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) - 7] != 21 && karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) - 7] != 02 &&
-            karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) - 7] != 12
+            karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) - 7] != 02 && karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y) - 7] != 12
             )
         {
             if(character.u)
@@ -612,8 +786,8 @@ while(!btn[2].click())
     if
         (
         karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y)] == 20 or karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y)] == 01 or
-        karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y)] == 21 or karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y)] == 02 or
-        karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y)] == 12)
+        karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y)] == 02 or karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y)] == 12
+        )
     {
         exit(0);
     }
@@ -654,7 +828,7 @@ if (character.x == character1.x && character.y == character1.y or character.x ==
     txBitBlt(txDC(), 0, 0, 672, 480, boi);
     tb += 1;
 
-    if (tb >= 1000)
+    if (tb >= 200)
     {
         tb = 0;
         rb1 = 1 + rand() % 5;
@@ -817,7 +991,7 @@ if (character.x == character1.x && character.y == character1.y or character.x ==
             hp0 -= 12;
         }
     }
-    if (rb0 == 5 or hp1 <= 0)
+    if (hp1 <= 0)
     {
         if(character.x == character1.x && character.y == character1.y)
         {
@@ -831,6 +1005,13 @@ if (character.x == character1.x && character.y == character1.y or character.x ==
             character2.y = -1;
             hp1 += 5;
         }
+    }
+    if (rb0 == 5)
+    {
+        hp1 -= 1;
+        tb = 0;
+        rb1 = 1 + rand() % 5;
+        rb0 = 1 + rand() % 5;
     }
 }
 
@@ -972,6 +1153,44 @@ if(hp[9].job)
     hp[9].draw();
 }
 //konec_hpandxp
+//start_world
+if (character.x >= 6)
+{
+    character.x = 1;
+    maxx += 1;
+    character1.x = 1;
+    character1.y = 2;
+    character2.x = 5;
+    character2.y = 2;
+}
+if (character.x <= 0)
+{
+    character.x = 5;
+    maxx -= 1;
+    character1.x = 1;
+    character1.y = 2;
+    character2.x = 5;
+    character2.y = 2;
+}
+if (character.y >= 4)
+{
+    character.y = 1;
+    maxy -= 1;
+    character1.x = 1;
+    character1.y = 2;
+    character2.x = 5;
+    character2.y = 2;
+}
+if (character.y <= 0)
+{
+    character.y = 3;
+    maxy += 1;
+    character1.x = 1;
+    character1.y = 2;
+    character2.x = 5;
+    character2.y = 2;
+}
+//konec_world
     if(GetAsyncKeyState(VK_ESCAPE))
         {
             PAGE = "menu";
