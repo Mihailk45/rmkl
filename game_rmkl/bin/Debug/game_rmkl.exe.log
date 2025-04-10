@@ -4395,3 +4395,35 @@ Run file:	C:\Users\user\Desktop\xt_m\game_rmkl\bin\Debug\game_rmkl.exe
 Directory:	C:\Users\user\Desktop\xt_m\game_rmkl
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\user\Desktop\xt_m\game_rmkl\bin\Debug\game_rmkl.exe, файл: C:\Users\user\Downloads\TX\TXLib.h, строка: 13313, функция: bool {anonymous}::TX::txClear(HDC),
+
+Сообщение: Окно рисования не создано или не в порядке.
+Если вы указали параметр "dc", то он неверен.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x004F92FC (32-bit), Flags: CMdrE0, Thread: 0x720 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\user\Downloads\TX\TXLib.h
+Compiled:	Apr 10 2025 21:31:13, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Apr 10 2025 21:31:25
+
+Run file:	C:\Users\user\Desktop\xt_m\game_rmkl\bin\Debug\game_rmkl.exe
+Directory:	C:\Users\user\Desktop\xt_m\game_rmkl
+
+--------------------------------------------------
