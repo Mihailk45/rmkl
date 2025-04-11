@@ -162,6 +162,7 @@ int rb0 = 3;//удар
 int rb1 = 2;//удачность_удара
 int maxx = 0;//номер_сцены
 int maxy = 0;
+int points = 0;//кол-во_убитых_боссов
 //peremennie_konec
 
 //obiecti_start
@@ -248,6 +249,8 @@ hp[9] = {01 , txLoadImage("pixelarts/hp.bmp") ,0 ,0 ,0 ,348,false};
 //podgruzca_kartinok_start
 HDC fon = txLoadImage("pixelarts/fon.bmp");//иницилизация_фонов
 HDC boi = txLoadImage("pixelarts/boi.bmp");
+HDC smert = txLoadImage("pixelarts/vimertvi.bmp");
+HDC pobeda = txLoadImage("pixelarts/pobda.bmp");
 //podgruzca_kartinok_konec
 //glavnicikl
 while(!btn[2].click())
@@ -784,6 +787,7 @@ if (maxx == -1 && maxy == 1)
         karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y)] == 02 or karta[functia_rotoraya_nujna_dlya_colisii(character.x,character.y)] == 12
         )//проверка_нет_ли_под_игроком_стены
     {
+        txBitBlt(txDC(), 0, 0, 800, 600, smert);
         exit(0);//выход
     }
     if
@@ -823,7 +827,7 @@ if (character.x == character1.x && character.y == character1.y or character.x ==
     txBitBlt(txDC(), 0, 0, 672, 480, boi);//отрисовка_фон_боя
     tb += 1;//таймер_боя_пошел
 
-    if (tb >= 200)//ограничитель_времени_раунда
+    if (tb >= 130)//ограничитель_времени_раунда
     {
         tb = 0;//обнуоение_времни_боя
         rb1 = 1 + rand() % 5;//рандомизация
@@ -987,24 +991,32 @@ if (character.x == character1.x && character.y == character1.y or character.x ==
             hp0 -= 12;
         }
     }
-    if (hp1 <= 0)
+    if (hp1 <= 0)//если_враг_мертв
     {
-        if(character.x == character1.x && character.y == character1.y)
+        if(character.x == character1.x && character.y == character1.y)//какой_именно
         {
-            character1.x = -1;
+            character1.x = -1;//убрать_врага_со_сцены
             character1.y = -1;
             hp1 += 5;
+            if(character1.index == 3)//если_это_босс_добавить_счет
+            {
+                points += 1;
+            }
         }
-        if(character.x == character2.x && character.y == character2.y)
+        if(character.x == character2.x && character.y == character2.y)//какой_именно
         {
-            character2.x = -1;
+            character2.x = -1;//убрать_врага_со_сцены
             character2.y = -1;
             hp1 += 5;
+            if(character2.index == 3)//если_это_босс_добавить_счет
+            {
+                points += 1;
+            }
         }
     }
-    if (rb0 == 5)
+    if (rb0 == 5)//крит_удар_врага
     {
-        hp1 -= 1;
+        hp0 -= 5;
         tb = 0;
         rb1 = 1 + rand() % 5;
         rb0 = 1 + rand() % 5;
@@ -1065,6 +1077,7 @@ if (hp0 >= 101 & hp0 <=120)//отбражение_хп
  }
 if (hp0 < 20)//выход
 {
+    txBitBlt(txDC(), 0, 0, 800, 600, smert);
     exit(0);
 }
 if (hp1 == 1)//отбражение_хп_врага
@@ -1187,6 +1200,13 @@ if (character.y <= 0)//перход_сцены
     character2.y = 2;
 }
 //konec_world
+//start_pobeda
+if (points >= 3)
+{
+    txBitBlt(txDC(), 0, 0, 800, 600, pobeda);
+    exit(0);
+}
+//konec_pobeda
     if(GetAsyncKeyState(VK_ESCAPE))//выход_в_меню
         {
             PAGE = "menu";
