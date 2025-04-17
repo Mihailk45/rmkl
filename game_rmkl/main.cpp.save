@@ -163,6 +163,7 @@ int rb1 = 2;//удачность_удара
 int maxx = 0;//номер_сцены
 int maxy = 0;
 int points = 0;//кол-во_убитых_боссов
+bool gamee = true;
 //peremennie_konec
 
 //obiecti_start
@@ -253,7 +254,7 @@ HDC smert = txLoadImage("pixelarts/vimertvi.bmp");
 HDC pobeda = txLoadImage("pixelarts/pobda.bmp");
 //podgruzca_kartinok_konec
 //glavnicikl
-while(!btn[2].click())
+while(gamee)
 {
 
 //start_vragi
@@ -506,7 +507,10 @@ if (maxx == -1 && maxy == 1)
         {
             PAGE = "rules";
         }
-
+        if(btn[2].click())
+        {
+        exit(0);
+        }
         txSetFillColor (TX_BLACK);
     }
     //menu_konec
@@ -529,7 +533,9 @@ if (maxx == -1 && maxy == 1)
         txTextOut (50, 270, "и захотел пойт, нажал 6(противоположная кнопка взаимодействия),");
         txTextOut (50, 300, "но так как на панели справа не обозначено направленине 'L'");
         txTextOut (50, 330, "он запутался и начал метаться из стороны в сторону ;");
-        txTextOut (50, 360, "во время боя нажимай на числа на нумпаде, которые показываются в виде примеров;");
+        txTextOut (50, 360, "чтобы начать бой встань на соперника;");
+        txTextOut (50, 360, "боссы ");
+        txTextOut (50, 420, "во время боя нажимай на числа на нумпаде, которые показываются в виде примеров;");
         if(btn[3].click() || GetAsyncKeyState(VK_ESCAPE))//выход_через_кнопку_или_esc
         {
             PAGE = "menu";
@@ -827,7 +833,7 @@ if (character.x == character1.x && character.y == character1.y or character.x ==
     txBitBlt(txDC(), 0, 0, 672, 480, boi);//отрисовка_фон_боя
     tb += 1;//таймер_боя_пошел
 
-    if (tb >= 200)//ограничитель_времени_раунда
+    if (tb >= 130)//ограничитель_времени_раунда
     {
         tb = 0;//обнуоение_времни_боя
         rb1 = 1 + rand() % 5;//рандомизация
@@ -1204,6 +1210,7 @@ if (character.y <= 0)//перход_сцены
 if (points >= 3)
 {
     txBitBlt(txDC(), 0, 0, 800, 600, pobeda);
+    exit(0);
 }
 //konec_pobeda
     if(GetAsyncKeyState(VK_ESCAPE))//выход_в_меню
